@@ -17,7 +17,12 @@ class Responder
         return response()->json(compact('data', 'message', 'status'), $httpStatusCode);
     }
 
-    public static function success($data, $message = 'Success.', $httpStatusCode = 200)
+    public static function success($data, $message = 'Success', $httpStatusCode = 200)
+    {
+        return static::respond($data, $message, $httpStatusCode);
+    }
+
+    public static function error($data, $message = 'Error', $httpStatusCode = 500)
     {
         return static::respond($data, $message, $httpStatusCode);
     }
